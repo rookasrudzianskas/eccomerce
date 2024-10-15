@@ -1,11 +1,14 @@
 import express from "express";
+import productsRoutes from './routes/products/index';
 
 const app = express();
+
+app.use("/products", productsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
 app.listen(3000, () => {
-  console.log("Server is running on port Rokas");
+  console.log("Server is running on port 3000");
 });
