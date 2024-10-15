@@ -113,6 +113,14 @@ dist
 # Serverless directories
 .serverless/
 
+.env
+.env.test
+.env.production
+.env.Local
+# Environment variables
+.env*
+
+
 # FuseBox cache
 .fusebox/
 
