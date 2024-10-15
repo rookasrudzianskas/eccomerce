@@ -5,7 +5,7 @@ export default defineConfig({
   schema: ['./src/db/productsSchema.ts'],
   dialect: 'postgresql',
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: "postgresql://admin:qd9czgeC8EKG@ep-calm-violet-a213pa97-pooler.eu-central-1.aws.neon.tech/ecom?sslmode=require",
   },
   verbose: true,
   strict: true,
