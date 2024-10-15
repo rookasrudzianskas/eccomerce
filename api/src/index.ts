@@ -1,7 +1,10 @@
-import express from "express";
+import express, { json, urlencoded } from "express";
 import productsRoutes from './routes/products/index';
 
 const app = express();
+
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
 app.use("/products", productsRoutes);
 
