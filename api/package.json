@@ -6,9 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --import=tsx --env-file=.env.local --watch src/index.ts",
     "build": "tsc",
-    "migrate": "drizzle-kit migrate",
+    "db:migrate": "drizzle-kit migrate",
     "studio": "drizzle-kit studio",
-    "generate": "drizzle-kit generate",
+    "db:generate": "drizzle-kit generate",
     "push": "drizzle-kit push",
     "up": "drizzle-kit up",
     "down": "drizzle-kit down"
