@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
-import { db } from '../../db/index';
-import { productsTable, createProductSchema } from '../../db/productsSchema';
+import { db } from '../../db/index.js';
+import { productsTable, createProductSchema } from '../../db/productsSchema.js';
 import { eq } from 'drizzle-orm';
+// @ts-ignore
 import _ from 'lodash';
 
 export async function listProducts(req: Request, res: Response) {
@@ -9,6 +10,7 @@ export async function listProducts(req: Request, res: Response) {
     const products = await db.select().from(productsTable);
     res.json(products);
   } catch (e) {
+    console.log(e);
     res.status(500).send(e);
   }
 }

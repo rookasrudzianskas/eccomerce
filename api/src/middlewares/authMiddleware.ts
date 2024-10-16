@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+// @ts-ignore
 import jwt from 'jsonwebtoken';
 
 export function verifyToken(req: Request, res: Response, next: NextFunction) {
@@ -16,9 +17,10 @@ export function verifyToken(req: Request, res: Response, next: NextFunction) {
       res.status(401).json({ error: 'Access denied' });
       return;
     }
+
     req.userId = decoded.userId;
     req.role = decoded.role;
-    
+
     next();
   } catch (e) {
     res.status(401).json({ error: 'Access denied' });
