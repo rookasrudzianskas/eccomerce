@@ -8,6 +8,20 @@
       "when": 1729008171057,
       "tag": "0000_youthful_vulture",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1729077873687,
+      "tag": "0001_wealthy_tiger_shark",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1729077945583,
+      "tag": "0002_lethal_warbound",
+      "breakpoints": true
     }
   ]
 }
