@@ -1,7 +1,14 @@
 import { Request, Response } from 'express';
+import { db } from '../../db/index';
+import { productsTable } from '../../db/productsSchema';
+import { eq } from 'drizzle-orm';
 
-export const getProducts = (req: Request, res: Response) => {
-  res.send('the list of products 123');
+export const getProducts = async (req: Request, res: Response) => {
+  try {
+    const products = await db.select().from(productsTable);
+  } catch (error) {
+    res.status(500).send('Error fetching products');
+  }
 };
 
 export const getProductById = (req: Request, res: Response) => {
