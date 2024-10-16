@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-// @ts-ignore
 import _ from 'lodash';
 import { z, ZodError } from 'zod';
 

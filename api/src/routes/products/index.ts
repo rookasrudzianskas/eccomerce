@@ -4,9 +4,10 @@ import {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 } from './productsController.js';
 import { validateData } from '../../middlewares/validationMiddleware.js';
+
 import {
   createProductSchema,
   updateProductSchema,
@@ -17,7 +18,6 @@ const router = Router();
 
 router.get('/', listProducts);
 router.get('/:id', getProductById);
-
 router.post(
   '/',
   verifyToken,
@@ -33,6 +33,5 @@ router.put(
   updateProduct
 );
 router.delete('/:id', verifyToken, verifySeller, deleteProduct);
-
 
 export default router;

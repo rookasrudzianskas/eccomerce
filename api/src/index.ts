@@ -1,25 +1,27 @@
-import express, { json, urlencoded } from "express";
+import express, { json, urlencoded } from 'express';
 import productsRoutes from './routes/products/index.js';
-import ordersRoutes from './routes/orders/index.js';
 import authRoutes from './routes/auth/index.js';
+import ordersRoutes from './routes/orders/index.js';
+
 import serverless from 'serverless-http';
 
+const port = 3000;
 const app = express();
 
+app.use(urlencoded({ extended: false }));
 app.use(json());
-app.use(urlencoded({ extended: true }));
 
-app.use("/products", productsRoutes);
-app.use("/auth", authRoutes);
-app.use('/orders', ordersRoutes);
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
+app.use('/products', productsRoutes);
+app.use('/auth', authRoutes);
+app.use('/orders', ordersRoutes);
+
 if (process.env.NODE_ENV === 'dev') {
-  app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
   });
 }
 

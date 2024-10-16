@@ -9,7 +9,7 @@ export default defineConfig({
   ],
   dialect: 'postgresql',
   dbCredentials: {
-    url: "postgresql://admin:qd9czgeC8EKG@ep-calm-violet-a213pa97-pooler.eu-central-1.aws.neon.tech/ecom?sslmode=require",
+    url: process.env.DATABASE_URL!,
   },
   verbose: true,
   strict: true,

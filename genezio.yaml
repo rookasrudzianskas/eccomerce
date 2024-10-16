@@ -12,9 +12,9 @@ backend:
     # The name of the programming language.
     name: js
     # The package manager used by the backend.
-    packageManager: yarn
+    packageManager: npm
   scripts:
-    deploy: yarn install && yarn run build
+    deploy: npm install && npm run build
   # Information about the backend's functions.
   functions:
     # The name (label) of the function.
