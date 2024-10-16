@@ -117,6 +117,10 @@ dist
 .env.test
 .env.production
 .env.Local
+/api/.env
+/api/.env.test
+/api/.env.production
+/api/.env.Local
 # Environment variables
 .env*
 
