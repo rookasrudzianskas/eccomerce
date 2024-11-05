@@ -6,7 +6,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <GluestackUIProvider mode="light"><View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
+        <Text>Hellop wolrd!</Text>
         <StatusBar style="auto" />
       </View></GluestackUIProvider>
   );
