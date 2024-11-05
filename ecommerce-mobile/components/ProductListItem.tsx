@@ -22,20 +22,18 @@ export default function ProductListItem({ product }: { product: Product }) {
         source={{
           uri: product.image,
         }}
-        alt={product.name}
         className="mb-6 h-[240px] w-full rounded-md"
-        resizeMode='contain'
+        alt={`${product.name} image`}
+        resizeMode="contain"
       />
       <Text className="text-sm font-normal mb-2 text-typography-700">
         {product.name}
       </Text>
       <VStack className="mb-6">
         <Heading size="md" className="mb-4">
-          {product.price}
+          ${product.price}
         </Heading>
-        <Text size="sm">
-          {product.description}
-        </Text>
+        <Text size="sm">{product.description}</Text>
       </VStack>
       <Box className="flex-col sm:flex-row">
         <Button className="px-4 py-2 mr-0 mb-3 sm:mr-3 sm:mb-0 sm:flex-1">
