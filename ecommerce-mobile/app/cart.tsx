@@ -9,13 +9,16 @@ import { Redirect } from 'expo-router';
 export default function CartScreen() {
   const items = useCart((state) => state.items);
   const resetCart = useCart((state) => state.resetCart);
+
   const onCheckout = async () => {
     // send order to server
     resetCart();
   };
+
   if (items.length === 0) {
     return <Redirect href={'/'} />;
   }
+
   return (
     <FlatList
       data={items}
@@ -35,7 +38,5 @@ export default function CartScreen() {
         </Button>
       )}
     />
-  )
-
-
+  );
 }
