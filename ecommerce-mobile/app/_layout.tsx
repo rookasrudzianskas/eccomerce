@@ -8,12 +8,14 @@ import { Pressable } from 'react-native';
 import { useCart } from '@/store/cartStore';
 import { Text } from '@/components/ui/text';
 import React from 'react';
+import { useAuth } from '@/store/authStore';
 
 // Create a client
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
   const cartItemsNum = useCart((state) => state.items.length);
+  const isLoggedIn = useAuth((s) => !!s.token);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -38,8 +40,22 @@ export default function RootLayout() {
               )
           }}
         >
-          <Stack.Screen name="index" options={{ title: 'Shop' }} />
-          <Stack.Screen name="product/[id]" options={{ title: 'Product' }} />
+        <Stack.Screen
+            name="index"
+            options={{
+              title: 'Shop',
+              headerLeft: () =>
+                !isLoggedIn && (
+                  <Link href={'/login'} asChild>
+                    <Pressable className="flex-row gap-2">
+                      <Icon as={User} />
+                    </Pressable>
+                  </Link>
+                ),
+            }}
+          />
+          
+        <Stack.Screen name="product/[id]" options={{ title: 'Product' }} />
         </Stack>
       </GluestackUIProvider>
     </QueryClientProvider>
