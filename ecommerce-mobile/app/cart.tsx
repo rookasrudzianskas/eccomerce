@@ -6,19 +6,33 @@ import { View, FlatList } from 'react-native';
 import { Button, ButtonText } from '@/components/ui/button';
 import { Redirect } from 'expo-router';
 import React from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { createOrder } from './api/orders';
 
 export default function CartScreen() {
   const items = useCart((state) => state.items);
   const resetCart = useCart((state) => state.resetCart);
 
-  const onCheckout = async () => {
-    // send order to server
-    resetCart();
-  };
-
   if (items.length === 0) {
     return <Redirect href={'/'} />;
   }
+
+  const createOrderMutation = useMutation({
+    mutationFn: () => createOrder(
+      items.map((item) => ({
+        product: item.product.id,
+        quantity: item.quantity,
+        price: item.product.price
+      }))
+    ),
+    onSuccess: () => {
+      console.log(data);
+      resetCart();
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  })
 
   return (
     <FlatList
@@ -34,7 +48,7 @@ export default function CartScreen() {
         </HStack>
       )}
       ListFooterComponent={() => (
-        <Button onPress={onCheckout}>
+        <Button onPress={() => createOrderMutation.mutate()}>
           <ButtonText>Checkout</ButtonText>
         </Button>
       )}
