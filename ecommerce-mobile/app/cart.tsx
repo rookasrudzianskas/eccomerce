@@ -5,6 +5,7 @@ import { useCart } from '@/store/cartStore';
 import { View, FlatList } from 'react-native';
 import { Button, ButtonText } from '@/components/ui/button';
 import { Redirect } from 'expo-router';
+import React from 'react';
 
 export default function CartScreen() {
   const items = useCart((state) => state.items);

@@ -5,6 +5,7 @@ import { listProducts } from '@/api/products';
 import { useQuery } from '@tanstack/react-query';
 import { err } from 'react-native-svg/lib/typescript/xml';
 import { Text } from '@/components/ui/text';
+import React from 'react';
 
 export default function HomeScreen() {
   const { data, isLoading, error } = useQuery({
