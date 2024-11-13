@@ -1,6 +1,9 @@
 import { Request, Response } from 'express';
 import Stripe from 'stripe';
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET!;
+
 export async function getKeys(req: Request, res: Response) {
   res.json({ publishableKey: process.env.STRIPE_PUBLISHABLE_KEY });
 }

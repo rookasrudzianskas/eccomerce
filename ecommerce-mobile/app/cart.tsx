@@ -33,6 +33,7 @@ export default function CartScreen() {
         defaultBillingDetails: {
           name: 'Jane Doe',
         },
+        returnURL: 'https://unimi.com/dashboard/payments/success',
       });
       if (error) {
         Alert.alert('Error', error.message);
