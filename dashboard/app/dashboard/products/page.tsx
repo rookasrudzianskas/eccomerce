@@ -21,5 +21,6 @@ export default async function ProductsPage() {
         <ProductListItem key={product.id} product={product} />
       ))}
     </div>
+    </div>
   );
 }
